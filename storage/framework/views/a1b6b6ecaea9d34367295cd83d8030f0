@@ -1,0 +1,28 @@
+<div class="form-group">
+	<?php echo Form::label('title', 'Name:'); ?>
+
+	<?php echo Form::text('title',null,['class' => 'formcontrol' , 'id' => 'textTitle' , 'onkeyup' => 'saveTitleInRequest()']); ?>
+
+</div>
+
+
+
+<div class="form-group">
+	<?php echo Form::label('description' , 'Description:'); ?>
+
+	<?php echo Form::textarea('description',null ,['class' => 'formcontrol', 'id' => 'textareaDescription' , 'onkeyup' => 'saveDescriptionInRequest()']); ?>
+
+</div>
+
+<div class="form-group">
+	<?php echo Form::label('tag_list','Tags:'); ?>
+
+	<?php echo Form::select('tag_list[]', $tags, (isset($article) ? $article->tags->lists('id')->toArray() : 'tag_list') , ['class' => 'formcontrol' , 'multiple']); ?>
+
+</div>
+
+<div class="form-group">
+<?php echo Form::Submit($submitButtonText,['class' => 'btn btn-primary form-control']); ?>
+
+</div>
+

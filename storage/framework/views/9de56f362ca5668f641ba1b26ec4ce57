@@ -1,0 +1,23 @@
+<?php $__env->startSection('title'); ?>
+	Index
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<h1>Articles</h1>
+	
+	<?php foreach($articles as $article): ?>
+		<a href="/article/<?php echo e($article->id); ?>">
+			<h3><?php echo e($article->title); ?></h3>
+		</a>
+		<p><?php echo $article->description; ?></p>
+		
+			<?php if($user != '' &&$article->user_id == $user->id): ?>
+				<a href="article/<?php echo e($article->id); ?>/edit">edit</a>
+			
+		<?php endif; ?>
+	<?php endforeach; ?>
+	
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('masterApp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

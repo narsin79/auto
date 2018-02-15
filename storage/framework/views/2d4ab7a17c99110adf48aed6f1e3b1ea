@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+test <?php echo e($test); ?>
+
+</body>
+</html>
+
+

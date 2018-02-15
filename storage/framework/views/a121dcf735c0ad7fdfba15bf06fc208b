@@ -1,0 +1,26 @@
+<?php $__env->startSection('title'); ?>
+Specified search
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<h1>Article Nr: <?php echo e($article->id); ?></h1>
+	<h3>title: <?php echo e($article->title); ?></h3>
+	<p>description: <?php echo e($article->description); ?></p>
+	<p>published: <?php echo e($article->publish_at); ?> </p>
+	<p>Author: <?php echo e($article->user->name); ?> </p>
+	<p>created: <?php echo e($article->created_at); ?></p>
+	<p>updated: <?php echo e($article->updated_at); ?></p>
+	<?php if ( ! ($article->tags->isEmpty())): ?>
+		<p>Tags:</p>
+		<ul>
+			<?php foreach($article->tags as $tag): ?>
+				<li><?php echo e($tag->name); ?></li>
+			<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+	<a href="/article">
+	<button style="height:45px;width:180px">Index</button>
+	</a>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('masterApp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
